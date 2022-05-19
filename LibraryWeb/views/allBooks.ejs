@@ -1,0 +1,44 @@
+<%- include('partials/head.ejs') %> 
+<%- include('partials/navbar.ejs') %> 
+
+<style>
+
+    #books{
+        display:flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        background-color: antiquewhite;
+    }
+    h1{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: beige;
+    }
+    .card{
+      margin: 20px;
+    }
+</style>
+
+<h1> All books</h1>
+
+<hr>
+
+<article id="books">
+<% for(let book of images){ %>
+
+    <div class="card" style="width:300px; height: 550px; overflow: hidden;">
+        <img class="card-img-top" src=<%= book.thumbnailUrl %> >
+        <div class="card-body">
+          <h4 class="card-title"><%= book.title %></h4>
+          <p class="card-text">Page Count-<b><%= book.pageCount %></b></p>
+          <a href="#" class="btn btn-primary">Add To Cart</a>
+        </div>
+      </div>
+
+    <% } %>  
+</article>
+
+
+    <%- include('partials/foot.ejs') %> 
